@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="windows">
+        <!-- Title -->
+        <h1 class="title"></h1>
+        <!-- Calculator -->
+        <div class="calculator">
+            <!-- Screen -->
+            <div class="calculator_screenContainer">
+                <div class="calculator_screenContainer-operator">
+                    <p class="operatorPara"></p>
+                </div>                
+                <div class="calculator_screenContainer-result">
+                    <p class="resultPara"></p>
+                </div>
+            </div>
+            <!-- Buttons -->
+             <div class="calculator_buttonsContainer">
+                <div class="button_section clear&delete">
+                    <button class="clear"></button>
+                    <button class="delete"></button>
+                </div>
+                <div class="button_section">
+                    <button class="buttonOne number" data-number="1"></button>
+                    <button class="buttonTwo number" data-number="2"></button>
+                    <button class="buttonThree number" data-number="3"></button>
+                    <button class="division operator" data-operator="division"></button>
+                </div>
+                <div class="button_section">
+                    <button class="buttonFour number" data-number="4"></button>
+                    <button class="buttonFive number" data-number="5"></button>
+                    <button class="buttonSix number" data-number="6"></button>
+                    <button class="multiplication opeartor" data-operator="multiplication"></button>
+                </div>
+                <div class="button_section">
+                    <button class="buttonSeven number" data-number="7"></button>
+                    <button class="buttonEight number" data-number="8"></button>
+                    <button class="buttonNine number" data-number="9"></button>
+                    <button class="subraction operator" data-operator="subraction"></button>
+                </div>
+                <div class="button_section">
+                    <button class="buttonZero number" data-number="0"></button>
+                    <button class="buttonPoint"></button>
+                    <button class="buttonEqual"></button>
+                    <button class="buttonAddition operator" data-operator="addition"></button>
+                </div>
+             </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <p class="footer_Para"></p>
+    </footer>
+
+    <!-- Script -->
+     <script src="app.js"></script>
+</body>
+</html>
