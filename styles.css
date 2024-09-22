@@ -9,7 +9,7 @@ button{
     font-size: 1rem;
 }
 h1{
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 :root{
@@ -58,7 +58,17 @@ h1{
  }
  .calculator_screenContainer-operator,
  .calculator_screenContainer-result{
+    padding: 20px;
     flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+ }
+ .operatorPara{
+    font-size: 2rem;
+ }
+ .resultPara{
+    font-size: 3rem;
  }
  .button_section{
     display: flex;
