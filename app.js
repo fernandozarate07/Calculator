@@ -4,6 +4,7 @@ const operatorPara = document.querySelector('.operatorPara');
 const resultPara = document.querySelector('.resultPara');
 const buttonEqual = document.querySelector('.buttonEqual');
 const buttonPoint = document.querySelector('.buttonPoint');
+const clear = document.querySelector('.clear');
 
 let numberOneArray = [];
 let numberTwoArray = [];
@@ -28,7 +29,7 @@ for (let e of numbers) {
     });
 }
 
-// Get decimalNumber
+// get decimalNumber
 buttonPoint.addEventListener('click', () => {
     if (!isOperatorSelected) {
         if (!numberOneArray.includes('.')) {
@@ -55,7 +56,7 @@ buttonPoint.addEventListener('click', () => {
     }
 });
 
-// Get operator
+// get operator
 for (let e of operators) {
     e.addEventListener('click', () => {
         if (!isOperatorSelected) { 
@@ -97,7 +98,7 @@ for (let e of operators) {
     });
 }
 
-// Result function
+// result function
 buttonEqual.addEventListener('click', () => {
     if(!isOperatorSelected || !numberOne || !numberTwo ){
         alert('El formato usado no es válido');
@@ -167,3 +168,14 @@ const multiplication = function(){
         result =result.toFixed(1);
     }
 }
+// clear function
+clear.addEventListener('click',()=>{
+    numberOne = 0;
+    numberTwo = 0;
+    numberOneArray = [];
+    numberTwoArray = [];
+    operatorPara.textContent = '';
+    resultPara.textContent = '';
+
+})
+
