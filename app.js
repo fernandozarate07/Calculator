@@ -3,6 +3,7 @@ const numbers = document.querySelectorAll('.number');
 const operatorPara = document.querySelector('.operatorPara');
 const resultPara = document.querySelector('.resultPara');
 const buttonEqual = document.querySelector('.buttonEqual');
+const buttonPoint = document.querySelector('.buttonPoint');
 
 let numberOneArray = [];
 let numberTwoArray = [];
@@ -11,7 +12,6 @@ let numberTwo = 0;
 let operatorValue = '';
 let isOperatorSelected = false;
 
-// Get numbers
 for (let e of numbers) {
     e.addEventListener('click', () => {
         if (!isOperatorSelected) { 
@@ -19,7 +19,7 @@ for (let e of numbers) {
             numberOne = Number(numberOneArray.join(''));
             operatorPara.textContent = `${numberOne}`;
             console.log('Número 1:', numberOne);
-        } else{
+        } else {
             numberTwoArray.push(e.dataset.number);
             numberTwo = Number(numberTwoArray.join(''));
             operatorPara.textContent = `${numberOne} ${operatorValue} ${numberTwo}`;
@@ -27,6 +27,33 @@ for (let e of numbers) {
         }
     });
 }
+
+// Get decimalNumber
+buttonPoint.addEventListener('click', () => {
+    if (!isOperatorSelected) {
+        if (!numberOneArray.includes('.')) {
+            if (numberOneArray.length === 0) {
+                numberOneArray.push('0.');
+            } else {
+                numberOneArray.push('.');
+            }
+            numberOne = numberOneArray.join('');
+            operatorPara.textContent = `${numberOne}`;
+            console.log('Número 1:', numberOne);
+        }
+    } else {
+        if (!numberTwoArray.includes('.')) {
+            if (numberTwoArray.length === 0) {
+                numberTwoArray.push('0.');
+            } else {
+                numberTwoArray.push('.');
+            }
+            numberTwo = numberTwoArray.join('');
+            operatorPara.textContent = `${numberOne} ${operatorValue} ${numberTwo}`;
+            console.log('Número 2:', numberTwo);
+        }
+    }
+});
 
 // Get operator
 for (let e of operators) {
@@ -36,8 +63,7 @@ for (let e of operators) {
             isOperatorSelected = true;
             operatorPara.textContent = `${numberOne} ${operatorValue}`;
             console.log('Operador:', operatorValue);
-        }
-        else{
+        } else {
             numberTwoArray = [];
             if(operatorValue === '-'){
                 subtraction();
@@ -70,9 +96,9 @@ for (let e of operators) {
         }
     });
 }
-// Result function
 
-buttonEqual.addEventListener('click', ()=>{
+// Result function
+buttonEqual.addEventListener('click', () => {
     if(!isOperatorSelected || !numberOne || !numberTwo ){
         alert('El formato usado no es válido');
     }
@@ -111,9 +137,7 @@ buttonEqual.addEventListener('click', ()=>{
             resultPara.textContent = result;
         }
     }
-})
-
-
+});
 
 // addition function
 const addition = function(){
@@ -123,20 +147,23 @@ const addition = function(){
     }
 }
 // subtraction function
- const subtraction = function(){
+const subtraction = function(){
     result = numberOne - numberTwo;
     if(result%1 === !0){
         result =result.toFixed(1);
-    } }
+    }
+}
 // division function
 const division = function(){
     result = numberOne / numberTwo;
     if(result%1 === !0){
         result =result.toFixed(1);
-    }}
+    }
+}
 // multiplication function
 const multiplication = function(){
     result = numberOne * numberTwo;
     if(result%1 === !0){
         result =result.toFixed(1);
-    }}
+    }
+}
