@@ -4,7 +4,8 @@ const operatorPara = document.querySelector('.operatorPara');
 const resultPara = document.querySelector('.resultPara');
 const buttonEqual = document.querySelector('.buttonEqual');
 const buttonPoint = document.querySelector('.buttonPoint');
-const clear = document.querySelector('.clear');
+const btnClear = document.querySelector('.clear');
+const btnDelete = document.querySelector('.delete')
 
 let numberOneArray = [];
 let numberTwoArray = [];
@@ -169,13 +170,41 @@ const multiplication = function(){
     }
 }
 // clear function
-clear.addEventListener('click',()=>{
+btnClear.addEventListener('click',()=>{
     numberOne = 0;
     numberTwo = 0;
     numberOneArray = [];
     numberTwoArray = [];
     operatorPara.textContent = '';
     resultPara.textContent = '';
-
 })
+// delete function
+btnDelete.addEventListener('click', () => {
+    if (numberTwoArray.length > 0) {
+        numberTwoArray.pop();
+        numberTwo = Number(numberTwoArray.join(''));
+        if (numberTwoArray.length === 0) {
+            numberTwo = '';
+        }
+    } else if (operatorValue) {
+        operatorValue = '';
+        isOperatorSelected = false;
+    } else if (numberOneArray.length > 0) {
+        numberOneArray.pop();
+        numberOne = Number(numberOneArray.join(''));
+        if (numberOneArray.length === 0) {
+            numberOne = ''; 
+        }
+    }
+    updateDisplay();
+});
 
+function updateDisplay() {
+    if (numberOneArray.length === 0 && numberTwoArray.length === 0) {
+        operatorPara.textContent = '';
+    } else if (operatorValue) {
+        operatorPara.textContent = `${numberOne} ${operatorValue} ${numberTwo}`;
+    } else {
+        operatorPara.textContent = `${numberOne}`;
+    }
+}
